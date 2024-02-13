@@ -1,0 +1,292 @@
+body {
+   display: flex;
+   align-items: center;
+   flex-direction: column-reverse;
+   background: linear-gradient(180deg, #c26dd7, #da408f);
+   background-size: 400% 400%;
+   animation: change-body-color 8s linear infinite alternate both;
+   overflow: hidden;
+}
+
+body ::selection {
+   background-color: #c26dd765;
+}
+
+@-webkit-keyframes change-body-color {
+   0% {
+      background: #c26dd7;
+   }
+
+   25% {
+      background: #d764dd;
+   }
+
+   50% {
+      background: #d73ae2;
+   }
+
+   75% {
+      background: #e93ddd;
+   }
+
+   100% {
+      background: #c86dc8;
+   }
+}
+
+@keyframes change-body-color {
+   0% {
+      background: #c26dd7;
+   }
+
+   25% {
+      background: #d764dd;
+   }
+
+   50% {
+      background: #d73ae2;
+   }
+
+   75% {
+      background: #e93ddd;
+   }
+
+   100% {
+      background: #c86dc8;
+   }
+}
+
+.heart {
+   position: relative;
+   width: 400px;
+   height: auto;
+   margin: auto;
+   animation: 1.5s ease 1s infinite heart-beat;
+   cursor: pointer;
+   z-index: 2;
+}
+
+.heart p {
+   position: absolute;
+   left: 50%;
+   transform: translate(-50%, 100%);
+   z-index: 2;
+   margin-top: 70px;
+   background: linear-gradient(90deg, #492e52, #1f1e1f);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   font-family: "Dancing Script";
+   font-size: 24px;
+}
+
+@keyframes heart-beat {
+
+   0%,
+   50%,
+   100% {
+      transform: scale(1, 1);
+   }
+
+   30%,
+   80% {
+      transform: scale(0.92, 0.95);
+   }
+}
+
+
+.heart::before,
+.heart::after {
+   position: absolute;
+   content: "";
+   left: 50%;
+   top: 50%;
+   width: 200px;
+   height: 320px;
+   background-color: rgb(232, 30, 97);
+   border-radius: 100px 100px 0 0;
+   transform: rotate(-45deg);
+   transform-origin: 0 100%;
+}
+
+.heart::after {
+   left: 0;
+   transform: rotate(45deg);
+   transform-origin: 100% 100%;
+}
+
+.heart-appear {
+   animation: heart-appear;
+}
+
+
+@keyframes heart-appear {
+   from {
+      opacity: 0;
+      transform: scale(0);
+   }
+
+   to {
+      opacity: 1;
+      transform: scale(1);
+   }
+}
+
+@keyframes heart-disappear {
+
+   to {
+      opacity: 0;
+      transform: scale(0);
+   }
+}
+
+.heart-text {
+   font-size: 58px;
+   background: linear-gradient(90deg, #7f2495, #c10b93);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   font-family: "Dancing Script";
+   font-weight: 900;
+   opacity: 0;
+   z-index: 2;
+}
+
+@keyframes text-appear {
+   from {
+      opacity: 0;
+   }
+
+   to {
+      opacity: 1;
+   }
+
+}
+
+@keyframes text-disappear {
+   from {
+      opacity: 1;
+   }
+
+   to {
+      opacity: 0;
+   }
+}
+
+h1 {
+   font-size: 78px;
+   background: linear-gradient(90deg, #7f2495, #c10b93);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   font-family: "Dancing Script";
+   font-weight: 900;
+   z-index: 2;
+}
+
+.imgHeart {
+   position: absolute;
+   width: 35px;
+   height: 35px;
+   z-index: 1;
+   opacity: 0;
+   transition: 0.6s;
+   animation-name: imgHeart-appear;
+}
+
+@keyframes imgHeart-appear {
+   0% {
+      transform: translateY(10px) scale(1.2, 1.2);
+   }
+
+   25% {
+      transform: translateY(0px) scale(0.92, 0.95);
+   }
+
+   50% {
+      transform: translateY(10px) scale(1.2, 1.2);
+   }
+
+   75% {
+      transform: translateY(0px) scale(0.92, 0.95);
+   }
+
+   100% {
+      transform: translateY(10px) scale(1.2, 1.2);
+   }
+}
+
+.imgHeart:nth-child(odd) {
+   animation-name: imgHeart-Revertappear;
+}
+
+@keyframes imgHeart-Revertappear {
+   0% {
+      transform: translateY(0px);
+   }
+
+   25% {
+      transform: translateY(7px);
+   }
+
+   50% {
+      transform: translateY(0px);
+   }
+
+   75% {
+      transform: translateY(7px);
+   }
+
+   100% {
+      transform: translateY(0px);
+   }
+}
+
+/* Start Media Queries */
+
+@media screen and (max-width: 768px) {
+   .heart {
+      width: 295px;
+   }
+
+   h1 {
+      font-size: 50px;
+   }
+
+   .heart-text {
+      font-size: 38px;
+   }
+
+   .heart::before,
+   .heart::after {
+      position: absolute;
+      content: "";
+      left: 50%;
+      top: 50%;
+      width: 150px;
+      height: 230px;
+      background-color: rgb(255, 0, 85);
+      border-radius: 100px 100px 0 0;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+   }
+
+   .heart::after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+   }
+}
+
+@media screen and (max-width: 576px) {
+   h1 {
+      font-size: 40px;
+   }
+
+   .heart p {
+      font-size: 18px;
+      margin-top: 40px;
+   }
+
+   .imgHeart {
+      width: 15px;
+      height: 15px;
+   }
+}
